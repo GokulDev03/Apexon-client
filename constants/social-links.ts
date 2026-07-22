@@ -1,10 +1,10 @@
-import type { LucideIcon } from "lucide-react";
-import { Linkedin, Github, Instagram, Dribbble, Twitter } from "lucide-react";
+import React from "react";
+import { Linkedin, Github, Instagram, Twitter } from "@/components/ui/BrandIcons";
 
 export interface SocialLink {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: React.ComponentType<{ size?: number | string; className?: string }>;
 }
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -12,5 +12,4 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: "X (Twitter)", href: "https://x.com/apexondev", icon: Twitter },
   { label: "Instagram", href: "https://instagram.com/apexondevelopment", icon: Instagram },
   { label: "GitHub", href: "https://github.com/apexon-development", icon: Github },
-  { label: "Dribbble", href: "https://dribbble.com/apexondevelopment", icon: Dribbble },
 ];

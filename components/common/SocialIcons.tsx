@@ -13,7 +13,7 @@ export function SocialIcons({ className }: { className?: string }) {
           aria-label={label}
           className="flex h-9 w-9 items-center justify-center rounded-full border border-ink-700 text-ink-300 transition-colors hover:border-brand-500 hover:text-white"
         >
-          {/* <Icon size={16} /> */}
+          <Icon size={16} />
         </a>
       ))}
     </div>
