@@ -29,7 +29,11 @@ export function Navbar() {
     >
       <Container className="flex h-18 items-center justify-between">
         <Link href="/" className="font-display text-xl font-semibold tracking-tight text-ink-900">
-          Apexon<span className="text-brand-500">.</span>
+          <img src="/apexon-logo-v2.svg"  alt="Apexon" 
+  width={180} 
+  height={100}
+  className="h-10 w-auto" 
+   />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" onMouseLeave={() => setActiveMegaMenu(null)}>
