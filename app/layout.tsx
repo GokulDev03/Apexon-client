@@ -4,7 +4,9 @@ import { defaultMetadata } from "@/seo/metadata";
 import { organizationSchema } from "@/seo/jsonld";
 import { AppProviders } from "@/providers/AppProviders";
 import { MainLayout } from "@/layouts/MainLayout";
+import ChatBot from "@/components/chatbot/ChatBot";
 import "./globals.css";
+import OfferToast from "@/components/OfferToast";
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -18,6 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <AppProviders>
           <MainLayout>{children}</MainLayout>
+          <OfferToast />
+          <ChatBot/>
         </AppProviders>
       </body>
     </html>

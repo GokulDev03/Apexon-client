@@ -1,9 +1,8 @@
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
 
-const CLIENT_LOGOS = ["client-1", "client-2", "client-3", "client-4", "client-5", "client-6"];
+const CLIENT_LOGOS = ["Google", "Microsoft", "Zoho", "AWS", "Meta", "Twilio"];
 
-/** Homepage "Trusted By" logo strip — blueprint Step 4.2. Replace slugs with real client SVGs before launch. */
 export function ClientsSection() {
   return (
     <Section tone="light" className="py-12 md:py-16">
@@ -11,9 +10,11 @@ export function ClientsSection() {
         <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wide text-ink-400">
           Trusted by teams at
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70 grayscale">
-          {CLIENT_LOGOS.map((slug) => (
-            <div key={slug} className="h-8 w-28 rounded bg-ink-200" aria-label={slug} />
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 grayscale opacity-70">
+          {CLIENT_LOGOS.map((name) => (
+            <span key={name} className="text-2xl font-bold text-ink-700">
+              {name}
+            </span>
           ))}
         </div>
       </Container>

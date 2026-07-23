@@ -31,51 +31,38 @@ const config: Config = {
     },
     extend: {
       colors: {
-        brand: {
-          50: "#eef0fd",
-          100: "#dde1fb",
-          200: "#b7bff6",
-          300: "#8f9cf1",
-          400: "#6d5ae6",
-          500: "#4f46e5", // Primary accent
-          600: "#4338ca",
-          700: "#3730a3",
-          800: "#2e2a80",
-          900: "#211d5c",
-        },
-        accent: {
-          50: "#fff4e5",
-          100: "#ffe4bf",
-          200: "#fcd08f",
-          300: "#fbb35e",
-          400: "#f9973a",
-          500: "#f59e0b", // Secondary/warm accent
-          600: "#e0820a",
-          700: "#b3630a",
-          800: "#8a4a0e",
-          900: "#5c3208",
-        },
-        coral: {
-          400: "#fb7185",
-          500: "#f43f5e",
-        },
-        ink: {
-          50: "#fafafa",
-          100: "#f4f4f6",
-          200: "#e5e5ea",
-          300: "#c9c9d1",
-          400: "#9a9aa6",
-          500: "#6b7280",
-          600: "#4b4b57",
-          700: "#33333d",
-          800: "#1f1f26",
-          900: "#111827",
-          950: "#0b0b10",
-        },
-        success: "#22c55e",
-        warning: "#f59e0b",
-        error: "#ef4444",
-      },
+  brand: {
+    50: "#eaf3ee",
+    100: "#d1e5da",
+    200: "#a3cbb6",
+    300: "#75b192",
+    400: "#47976e",
+    500: "#0d3320",   // primary dark green (buttons, headings accent)
+    600: "#0a2919",
+    700: "#081f13",
+    800: "#05140c",
+    900: "#030a06",
+    950: "#010503",
+  },
+  ink: {
+    50: "#faf6ef",    // cream background
+    100: "#f5ead9",   // slightly deeper cream
+    200: "#e8ddc8",
+    300: "#d4c5a8",
+    400: "#a89b7f",
+    500: "#7a6f58",
+    600: "#5c5342",
+    700: "#3d382c",
+    800: "#26221a",
+    900: "#171410",
+    950: "#0d0b08",
+  },
+  accent: {
+    400: "#e3bd8d",
+    500: "#d4a574",   // gold/tan accent
+    600: "#c08f5a",
+  },
+},
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
