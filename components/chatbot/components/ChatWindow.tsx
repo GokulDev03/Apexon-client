@@ -5,6 +5,7 @@ import { Message } from "../types/Chat";
 import ChatInput from "./ChatInput";
 import MessageList from "./MessageList";
 import QuickAction from "./QuickAction";
+import { X } from "lucide-react";
 
 interface ChatWindowProps {
   onClose: () => void;
@@ -13,7 +14,7 @@ interface ChatWindowProps {
   onInputChange: (value: string) => void;
   onSend: () => void;
   isTyping: boolean;
-   handleQuickAction: (value: string) => void; 
+  handleQuickAction: (value: string) => void;
 }
 
 export default function ChatWindow({
@@ -23,12 +24,19 @@ export default function ChatWindow({
   onInputChange,
   onSend,
   isTyping,
-  handleQuickAction
+  handleQuickAction,
 }: ChatWindowProps) {
   return (
-    <div className="fixed bottom-24 right-6 z-[9999] flex h-[650px] w-[380px] flex-col rounded-2xl border border-[#0d3320]/20 bg-[#f5ead9] shadow-2xl overflow-hidden">
+    <div
+      className="
+        fixed z-[9999] flex flex-col overflow-hidden bg-[#f5ead9] shadow-2xl
+        inset-0 h-full w-full rounded-none border-0
+        sm:inset-auto sm:bottom-24 sm:right-6 sm:h-[650px] sm:w-[380px]
+        sm:rounded-2xl sm:border sm:border-[#0d3320]/20
+      "
+    >
       {/* Header */}
-      <div className="flex items-center justify-between bg-[#0d3320] p-4 text-white">
+      <div className="flex items-center justify-between bg-[#0d3320] p-4 text-white safe-top">
         <div className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#d4a574]/20">
             <span className="text-lg">💬</span>
@@ -41,9 +49,9 @@ export default function ChatWindow({
 
         <button
           onClick={onClose}
-          className="text-lg text-white/80 hover:text-white transition"
+          className="text-white/80 hover:text-white transition"
         >
-          ✕
+          <X size={22} />
         </button>
       </div>
 
@@ -51,12 +59,12 @@ export default function ChatWindow({
       <MessageList messages={messages} />
       {isTyping && <TypingIndicator />}
 
+      {messages.length === 1 && !isTyping && (
+        <QuickAction onSelect={handleQuickAction} />
+      )}
+
       {/* Chat Input */}
       <ChatInput value={input} onChange={onInputChange} onSend={onSend} />
-
-      {messages.length === 1 && !isTyping && (
-  <QuickAction onSelect={handleQuickAction} />
-)}
     </div>
   );
 }

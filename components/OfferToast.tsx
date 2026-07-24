@@ -10,7 +10,13 @@ export default function OfferToast() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 z-[9998] animate-fade-up max-w-xs">
+    <div
+      className="
+        fixed z-[9998] animate-fade-up
+        bottom-24 left-4 right-4
+        sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-xs
+      "
+    >
       <div className="relative rounded-2xl bg-[#0d3320] p-4 pr-8 shadow-2xl border border-[#d4a574]/20">
         {/* Close button */}
         <button
@@ -25,7 +31,7 @@ export default function OfferToast() {
           Limited Time Offer
         </p>
 
-        <p className="mt-1 text-lg font-bold text-white">
+        <p className="mt-1 text-base sm:text-lg font-bold text-white">
           All Services — <span className="text-[#d4a574]">50% OFF</span>
         </p>
 
