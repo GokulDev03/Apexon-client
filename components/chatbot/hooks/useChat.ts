@@ -21,65 +21,59 @@ export function useChat() {
   const [isTyping, setIsTyping] = useState(false);
 
   const openChat = () => setIsOpen(true);
-
   const closeChat = () => setIsOpen(false);
-
   const toggleChat = () => setIsOpen((prev) => !prev);
 
   const handleInputChange = (value: string) => {
     setInput(value);
   };
 
- const sendMessage = async (overrideMessage?: string) => {
-  const currentMessage = overrideMessage ?? input;
-  if (!currentMessage.trim()) return;
+  const sendMessage = async (overrideMessage?: string) => {
+    const currentMessage = overrideMessage ?? input;
+    if (!currentMessage.trim()) return;
 
-  const userMessage: Message = {
-    id: crypto.randomUUID(),
-    role: "user",
-    content: currentMessage,
-    createdAt: new Date(),
-  };
+    const userMessage: Message = {
+      id: crypto.randomUUID(),
+      role: "user",
+      content: currentMessage,
+      createdAt: new Date(),
+    };
 
-  setMessages((prev) => [...prev, userMessage]);
-  setInput("");
-  setIsTyping(true);
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
+    setIsTyping(true);
 
-  const botMessageId = crypto.randomUUID();
-  setMessages((prev) => [
-    ...prev,
-    { id: botMessageId, role: "assistant", content: "", createdAt: new Date() },
-  ]);
+    const botMessageId = crypto.randomUUID();
+    setMessages((prev) => [
+      ...prev,
+      { id: botMessageId, role: "assistant", content: "", createdAt: new Date() },
+    ]);
 
-  try {
-    await sendMessageToAI(currentMessage, (partialText) => {
+    try {
+      await sendMessageToAI(currentMessage, (partialText) => {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === botMessageId ? { ...msg, content: partialText } : msg
+          )
+        );
+      });
+    } catch (error) {
       setMessages((prev) =>
         prev.map((msg) =>
-          msg.id === botMessageId ? { ...msg, content: partialText } : msg
+          msg.id === botMessageId
+            ? { ...msg, content: "Something went wrong. Please try again." }
+            : msg
         )
       );
-    });
-  } catch (error) {
-    setMessages((prev) =>
-      prev.map((msg) =>
-        msg.id === botMessageId
-          ? { ...msg, content: "Something went wrong. Please try again." }
-          : msg
-      )
-    );
-  }
+    }
 
-  setIsTyping(false);
-};
-
+    setIsTyping(false);
+  };
 
   const handleQuickAction = (value: string) => {
-  setInput(value);
-  
-  setTimeout(() => {
-    sendMessage();
-  }, 50);
-};
+    setIsOpen(true);
+    sendMessage(value);
+  };
 
   return {
     isOpen,
