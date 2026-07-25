@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { MAIN_NAV } from "@/constants/navigation";
 import { Button } from "@/components/ui/Button";
 import { Container } from "./Container";
@@ -11,11 +12,6 @@ import { navConfig } from "@/config/nav.config";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 
-/**
- * Desktop: sticky navbar with hover-triggered mega menus.
- * Mobile: hamburger opens a full-screen accordion overlay (see MobileMenu below),
- * plus a persistent bottom CTA bar (see FooterCTA-style sticky bar in layouts).
- */
 export function Navbar() {
   const scrolled = useScrollPosition(navConfig.stickyScrollThreshold);
   const { isMobileMenuOpen, setMobileMenuOpen, activeMegaMenu, setActiveMegaMenu } = useNav();
@@ -24,24 +20,31 @@ export function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-40 w-full transition-all duration-300",
-        scrolled ? "glass-panel shadow-soft" : "bg-transparent"
+        scrolled
+          ? "border-b border-white/10 bg-[#0d3320]/95 shadow-lg backdrop-blur-md"
+          : "bg-[#0d3320]"
       )}
     >
-      <Container className="flex h-18 items-center justify-between">
-        <Link href="/" className="font-display text-xl font-semibold tracking-tight text-ink-900">
-          <img src="/apexon-logo-v2.svg"  alt="Apexon" 
-  width={180} 
-  height={100}
-  className="h-10 w-auto" 
-   />
+      <Container className="flex h-20 items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="relative flex shrink-0 items-center">
+         <Image
+  src="/apexon-logo-white.svg"
+  alt="Apexon"
+  width={200}
+  height={64}
+  priority
+  className="h-11 w-auto sm:h-12"
+/>
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 lg:flex" onMouseLeave={() => setActiveMegaMenu(null)}>
           {MAIN_NAV.map((item) => (
             <div key={item.label} className="relative" onMouseEnter={() => item.megaMenu && setActiveMegaMenu(item.label)}>
               <Link
                 href={item.href}
-                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink-700 transition-colors hover:bg-ink-100 hover:text-ink-900"
+                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white"
               >
                 {item.label}
                 {item.megaMenu && <ChevronDown size={14} />}
@@ -54,18 +57,21 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
                     transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-1/2 top-full mt-2 w-[640px] -translate-x-1/2 rounded-lg border border-ink-200 bg-white p-6 shadow-raised"
+                    className="absolute left-1/2 top-full mt-3 w-[640px] -translate-x-1/2 rounded-2xl border border-[#0d3320]/10 bg-white p-6 shadow-2xl"
                   >
                     <div className={cn("grid gap-8", item.megaMenu.featured ? "grid-cols-4" : "grid-cols-3")}>
                       {item.megaMenu.columns.map((column) => (
                         <div key={column.title}>
-                          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-400">
+                          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-[#0d3320]/40">
                             {column.title}
                           </p>
                           <ul className="flex flex-col gap-2">
                             {column.links.map((link) => (
                               <li key={link.href}>
-                                <Link href={link.href} className="text-sm text-ink-700 hover:text-brand-600">
+                                <Link
+                                  href={link.href}
+                                  className="text-sm text-[#0d3320]/75 transition hover:text-[#0d3320]"
+                                >
                                   {link.label}
                                 </Link>
                               </li>
@@ -75,11 +81,11 @@ export function Navbar() {
                       ))}
                       {item.megaMenu.featured && (
                         <Link href={item.megaMenu.featured.href} className="group">
-                          <div className="aspect-video w-full rounded-sm bg-gradient-to-br from-brand-100 to-accent-100" />
-                          <p className="mt-3 text-sm font-medium text-ink-900 group-hover:text-brand-600">
+                          <div className="aspect-video w-full rounded-lg bg-gradient-to-br from-[#0d3320] to-[#0a2818]" />
+                          <p className="mt-3 text-sm font-medium text-[#0d3320] group-hover:text-[#d4a574]">
                             {item.megaMenu.featured.title}
                           </p>
-                          <p className="text-xs text-ink-500">{item.megaMenu.featured.description}</p>
+                          <p className="text-xs text-[#0d3320]/50">{item.megaMenu.featured.description}</p>
                         </Link>
                       )}
                     </div>
@@ -90,19 +96,26 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button href="/book-consultation" size="sm">
-            Book a Consultation
-          </Button>
-        </div>
+        {/* CTA + mobile toggle */}
+        <div className="flex items-center gap-3">
+          <div className="hidden lg:block">
+            <Button
+              href="/book-consultation"
+              size="sm"
+              className="bg-[#d4a574] text-[#0d3320] hover:bg-[#c08f5a]"
+            >
+              Book a Consultation
+            </Button>
+          </div>
 
-        <button
-          aria-label="Toggle navigation menu"
-          className="p-2 lg:hidden"
-          onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <button
+            aria-label="Toggle navigation menu"
+            className="rounded-full p-2 text-white transition hover:bg-white/10 lg:hidden"
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </Container>
 
       <MobileMenu />
@@ -120,7 +133,7 @@ function MobileMenu() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="overflow-hidden border-t border-ink-200 bg-white lg:hidden"
+          className="overflow-hidden border-t border-white/10 bg-[#0d3320] lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4">
             {MAIN_NAV.map((item) => (
@@ -128,7 +141,7 @@ function MobileMenu() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-sm px-3 py-3 text-base font-medium text-ink-800 hover:bg-ink-100"
+                className="rounded-lg px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
               >
                 {item.label}
               </Link>
@@ -136,10 +149,19 @@ function MobileMenu() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-sm px-3 py-3 text-base font-medium text-ink-800 hover:bg-ink-100"
+              className="rounded-lg px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
             >
               Contact
             </Link>
+            <div className="mt-2 px-3">
+              <Button
+                href="/book-consultation"
+                size="sm"
+                className="w-full bg-[#d4a574] text-[#0d3320] hover:bg-[#c08f5a]"
+              >
+                Book a Consultation
+              </Button>
+            </div>
           </Container>
         </motion.div>
       )}

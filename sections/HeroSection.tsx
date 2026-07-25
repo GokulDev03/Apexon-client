@@ -5,7 +5,12 @@ import { DashboardMockup } from "@/components/shared/DashboardMockup";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Play, Star } from "lucide-react";
 
-const AVATARS = ["/avatars/1.jpg", "/avatars/2.jpg", "/avatars/3.jpg", "/avatars/4.jpg"];
+const AVATARS = [
+  "https://api.dicebear.com/7.x/avataaars/svg?seed=Client1",
+  "https://api.dicebear.com/7.x/avataaars/svg?seed=Client2",
+  "https://api.dicebear.com/7.x/avataaars/svg?seed=Client3",
+  "https://api.dicebear.com/7.x/avataaars/svg?seed=Client4",
+];;
 
 export function HeroSection() {
   return (
