@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
+import Image from "next/image";
 
 interface ChatButtonProps {
   onClick: () => void;
@@ -41,10 +42,14 @@ export default function ChatButton({ onClick, onSuggestionClick }: ChatButtonPro
 
   const current: Suggestion = SUGGESTIONS[index] ?? DEFAULT_SUGGESTION;
 
-
-
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex items-center gap-3">
+    <div
+      className="
+        fixed z-[9999] flex items-center gap-3
+        bottom-20 right-4
+        sm:bottom-6 sm:right-6
+      "
+    >
       {showTooltip && (
         <div className="relative flex items-center rounded-2xl bg-white px-4 py-3 shadow-xl">
           <button
@@ -77,9 +82,15 @@ export default function ChatButton({ onClick, onSuggestionClick }: ChatButtonPro
           setShowTooltip(false);
           onClick();
         }}
-        className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0d3320] text-[#d4a574] shadow-xl transition hover:scale-105 hover:bg-[#0a2919]"
+        className="flex h-16 w-16 items-center justify-center rounded-full bg-[#0d3320] shadow-xl transition hover:scale-105 hover:bg-[#0a2919]"
       >
-        <MessageCircle size={28} />
+        <Image
+  src="/apexon-icon-only.svg"
+  alt="Apexon Chat"
+  width={28}
+  height={28}
+  className="h-7 w-7 object-contain"
+/>
       </button>
     </div>
   );
