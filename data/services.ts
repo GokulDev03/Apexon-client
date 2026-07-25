@@ -10,9 +10,10 @@ export const SERVICES: Service[] = [
     slug: "website-development",
     name: "Website Development",
     icon: "Globe",
-    shortDescription: "Fast, conversion-focused websites built to represent your business well and rank on Google.",
+   shortDescription:
+"Custom Website Development services using Next.js and modern technologies to build fast, SEO-friendly, mobile-responsive business websites that generate leads.",
     heroDescription:
-      "A website that loads fast, looks credible, and turns visitors into leads — built on modern architecture, not a bloated template.",
+"We build custom business websites that are fast, mobile-responsive, SEO-friendly and optimized for lead generation using Next.js, React and modern web technologies.",
     benefits: [
       { title: "Faster page loads", description: "Built on Next.js with image and code optimization baked in, not bolted on." },
       { title: "Built to rank", description: "Clean semantic markup, structured data, and a technical foundation your SEO team will thank you for." },
@@ -20,12 +21,12 @@ export const SERVICES: Service[] = [
       { title: "Designed to convert", description: "Every page is built around a clear next action, not just information." },
     ],
     features: [
-      "Custom design — no theme templates",
+      "Custom Website Design",
       "Mobile-first responsive layouts",
       "On-page SEO foundation (metadata, schema, sitemap)",
-      "Contact and lead-capture forms",
+      "Lead Generation Contact Forms",
       "CMS integration where needed",
-      "Analytics and conversion tracking setup",
+      "Google Analytics & Search Console Integration",
     ],
     relatedTechnologies: ["nextjs", "react", "typescript", "wordpress"],
     relatedServices: ["ui-ux-design", "seo-services", "website-maintenance"],
@@ -39,10 +40,19 @@ export const SERVICES: Service[] = [
       { question: "Can you migrate my existing website?", answer: "Yes, we handle content and URL migration carefully to protect your existing search rankings." },
     ],
     seo: {
-      title: "Website Development Company | Apexon Development",
-      description: "Custom, fast-loading business websites built on modern architecture. SEO-ready, mobile-first, and easy for your team to manage.",
+      title:
+"Website Development Company | Apexon Tech",
+      description:
+"Apexon Tech provides custom Website Development services with SEO-friendly, fast-loading, mobile-responsive websites built using Next.js, React and modern technologies.",
       mainKeyword: "website development company",
-      secondaryKeywords: ["business website design", "custom website development"],
+      secondaryKeywords: [
+  "business website design",
+  "custom website development",
+  "responsive website development",
+  "SEO friendly website",
+  "Next.js website development",
+  "React website development"
+]
     },
   },
   {

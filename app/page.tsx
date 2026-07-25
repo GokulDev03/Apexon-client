@@ -17,11 +17,26 @@ import {
 } from "@/sections";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Apexon Development — Custom Software, Web & Automation Experts",
+ title:
+"Website Development Company in India | Web, Software & AI Solutions | Apexon Tech",
   description:
-    "Apexon Development builds websites, web applications, custom software, and automation solutions for startups through enterprise.",
+"Apexon Tech provides Website Development, Web Application Development, Custom Software, E-Commerce Solutions, UI/UX Design, SEO Services and AI Automation for startups and enterprises.",
   path: "/",
-  keywords: ["software development company", "custom software agency", "web development company"],
+ keywords: [
+  "web development company",
+  "web development agency",
+  "custom website development",
+  "website design company",
+  "web design services",
+  "software development company",
+   "SEO services",
+  "ui ux design",
+  "Next.js development",
+  "React development",
+  "API integration",
+  "website maintenance",
+  "Apexon Tech"
+],
 });
 
 /** Home page — composed of every section defined in blueprint Step 4. */

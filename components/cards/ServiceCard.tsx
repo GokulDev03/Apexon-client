@@ -15,6 +15,7 @@ export function ServiceCard({ slug, name, shortDescription, icon }: ServiceCardP
 
   return (
     <Link href={`/services/${slug}`}>
+      aria-label={`Learn more about ${name}`}
       <Card className="group flex h-full flex-col gap-4">
         <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-brand-50 text-brand-600">
           <Icon size={20} />
@@ -22,7 +23,7 @@ export function ServiceCard({ slug, name, shortDescription, icon }: ServiceCardP
         <h3 className="font-display text-lg text-ink-900">{name}</h3>
         <p className="flex-1 text-sm text-ink-600">{shortDescription}</p>
         <span className="flex items-center gap-1 text-sm font-medium text-brand-600">
-          Learn more
+          Learn more about {name}
           <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       </Card>
