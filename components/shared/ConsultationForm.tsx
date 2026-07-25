@@ -8,11 +8,8 @@ import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
 
-/**
- * Lightweight scheduling form. For production, consider swapping this for
- * an embedded scheduling tool (e.g. Cal.com) — this form remains as a
- * no-dependency fallback that still captures a lead.
- */
+// Your WhatsApp business number in international format, no + or spaces
+const WHATSAPP_NUMBER = "919025649921";
 export function ConsultationForm() {
   const router = useRouter();
   const {
@@ -22,8 +19,26 @@ export function ConsultationForm() {
   } = useForm<ConsultationValues>({ resolver: zodResolver(consultationSchema) });
 
   const onSubmit = async (values: ConsultationValues) => {
-    // TODO: replace with real API route / scheduling integration.
-    console.log("Consultation request:", values);
+    // Build a readable WhatsApp message from the form data
+    const message = `*New Consultation Request*
+
+*Name:* ${values.name}
+*Email:* ${values.email}
+*Company:* ${values.company || "-"}
+*Preferred Date:* ${values.preferredDate}
+*Preferred Time:* ${values.preferredTime}
+*Notes:* ${values.notes || "-"}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    // Optional: still log/save the lead somewhere (CRM, email, DB) before redirecting
+    // await fetch("/api/consultation", { method: "POST", body: JSON.stringify(values) });
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+
+    // Then navigate to thank-you page
     router.push("/thank-you");
   };
 
