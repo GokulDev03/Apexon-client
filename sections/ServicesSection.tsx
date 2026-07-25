@@ -13,10 +13,10 @@ export function ServicesSection() {
     <Section tone="muted">
       <Container className="flex flex-col items-center gap-12">
         <SectionHeading
-          eyebrow="What We Do"
-          title="Eight ways we help your business grow"
-          description="From first line of code to long-term support, we cover the full software lifecycle."
-        />
+  eyebrow="Our Services"
+  title="Website Development, Web Applications & Custom Software Services"
+  description="Apexon Tech provides website development, custom web applications, e-commerce development, UI/UX design, SEO services, API integration, AI automation and long-term website maintenance for businesses of all sizes."
+/>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES_NAV.map((service) => {
             const full = SERVICES.find((s) => s.slug === service.slug);
@@ -32,7 +32,7 @@ export function ServicesSection() {
           })}
         </div>
         <Button href="/services" variant="secondary" icon={<ArrowRight size={16} />}>
-          View All Services
+          Explore Our Services
         </Button>
       </Container>
     </Section>

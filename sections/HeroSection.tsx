@@ -1,6 +1,5 @@
 
 
-
 import { Hero } from "@/components/shared";
 import { DashboardMockup } from "@/components/shared/DashboardMockup";
 import { Button } from "@/components/ui/Button";
@@ -12,21 +11,33 @@ export function HeroSection() {
   return (
     <Hero
       align="split"
-      eyebrow="Software Development Agency"
-      title={
-        <>
-          Software that moves your business{" "}
-          <span className="italic text-brand-500">forward</span>
-        </>
-      }
-      description="We design and build modern websites, web apps, and custom software for startups and enterprises — on fixed timelines, with a team that stays after launch."
+      eyebrow="Website Development • Web Applications • AI Automation"
+     title={
+  <>
+    <span className="text-brand-500">
+      Website Development Company
+    </span>
+    <br />
+    Building Modern Websites, Web Applications &
+    <span className="italic text-brand-500">
+      {" "}Custom Software
+    </span>
+  </>
+}
+description="
+Apexon Tech provides professional Website Development,
+Web Application Development, Custom Software,
+E-Commerce Solutions, UI/UX Design,
+SEO Services and AI Automation
+for startups and enterprises worldwide.
+"
       actions={
         <>
           <Button href="/book-consultation" size="lg" icon={<ArrowRight size={18} />}>
-            Book a Consultation
+           Get Free Consultation
           </Button>
           <Button href="/portfolio" variant="secondary" size="lg" icon={<Play size={16} />} iconPosition="left">
-            View Our Work
+            View Our Portfolio
           </Button>
         </>
       }
@@ -37,7 +48,7 @@ export function HeroSection() {
               <img
                 key={i}
                 src={src}
-                alt=""
+                alt="Satisfied software development client"
                 className="h-9 w-9 rounded-full border-2 border-white object-cover"
               />
             ))}
@@ -48,7 +59,7 @@ export function HeroSection() {
                 <Star key={i} size={14} fill="currentColor" />
               ))}
             </div>
-            <p className="text-xs text-ink-500">4.9/5 from 120+ clients</p>
+            <p className="text-xs text-ink-500">Trusted by 120+ businesses • Rated 4.9/5</p>
           </div>
         </div>
       }

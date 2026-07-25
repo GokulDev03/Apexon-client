@@ -9,7 +9,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "custom-software-development",
     technologies: ["nextjs", "nodejs", "sql-databases"],
     timeline: "10 weeks",
-    coverImage: "/images/case-studies/clearpath-clinic-cover.jpg",
+    coverImage: "/images/case-studies/clearpath-clinic-cover.svg",
     challenge:
       "ClearPath Clinic ran three providers' schedules through a single shared phone line. During peak hours, hold times regularly exceeded ten minutes, and double-bookings were a recurring source of patient frustration.",
     approach:
@@ -30,7 +30,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "website-development",
     technologies: ["shopify", "nextjs"],
     timeline: "6 weeks",
-    coverImage: "/images/case-studies/northloop-cover.jpg",
+    coverImage: "/images/case-studies/northloop-cover.svg",
     challenge:
       "Northloop's existing storefront required six steps to complete checkout, with no guest checkout option and slow page loads on mobile, where the majority of their traffic originated.",
     approach:

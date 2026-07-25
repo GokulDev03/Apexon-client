@@ -1,0 +1,98 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d3320"/>
+      <stop offset="100%" stop-color="#0a2818"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d4a8"/>
+      <stop offset="100%" stop-color="#d4a574"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+  <rect width="1200" height="675" fill="url(#dots)"/>
+
+  <!-- Decorative mountain icon top-left, faint -->
+  <g transform="translate(60,60)" opacity="0.15">
+    <path d="M0 60 L30 10 L45 32 L60 5 L85 60 Z" fill="#d4a574"/>
+  </g>
+
+  <!-- Category label -->
+  <text x="80" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#d4a574">
+    MANUFACTURING
+  </text>
+
+  <!-- Headline -->
+  <text x="80" y="200" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#f5ead9">
+    Forgeline Inventory Automation
+  </text>
+  <text x="80" y="245" font-family="Arial, sans-serif" font-size="20" fill="#f5ead9" opacity="0.75">
+    Replacing manual stock counts with real-time tracking
+  </text>
+
+  <!-- Stat card: manual hours saved -->
+  <g transform="translate(80, 300)">
+    <rect width="420" height="220" rx="20" fill="#f5ead9" opacity="0.97"/>
+    <text x="30" y="46" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#0d3320" opacity="0.6">
+      MANUAL STOCK-COUNT HOURS
+    </text>
+
+    <text x="30" y="90" font-family="Arial, sans-serif" font-size="13" fill="#0d3320" opacity="0.5">Before / week</text>
+    <text x="30" y="122" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#0d3320" opacity="0.4">32 hrs</text>
+
+    <polygon points="150,104 190,104 190,98 202,104 190,110 190,104" fill="#d4a574"/>
+
+    <text x="230" y="90" font-family="Arial, sans-serif" font-size="13" fill="#0d3320" opacity="0.6">After / week</text>
+    <text x="230" y="122" font-family="Georgia, serif" font-size="30" font-weight="800" fill="#0d3320">6 hrs</text>
+
+    <line x1="30" y1="150" x2="390" y2="150" stroke="#0d3320" stroke-opacity="0.1" stroke-width="1"/>
+    <text x="30" y="180" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#0d3320">
+      81% reduction
+    </text>
+    <text x="30" y="205" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#d4a574">
+      Manufacturing · Business Automation
+    </text>
+  </g>
+
+  <!-- Inventory accuracy chart card -->
+  <g transform="translate(540, 300)">
+    <rect width="580" height="220" rx="20" fill="#ffffff" opacity="0.06"/>
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#d4a574" opacity="0.9">
+      INVENTORY RECORD ACCURACY
+    </text>
+
+    <g font-family="Arial, sans-serif" font-size="11" fill="#f5ead9" opacity="0.85">
+      <rect x="30" y="150" width="60" height="40" rx="4" fill="#d4a574" opacity="0.35"/>
+      <text x="35" y="170">Month 1</text>
+      <rect x="120" y="120" width="60" height="70" rx="4" fill="#d4a574" opacity="0.55"/>
+      <text x="125" y="140">Month 2</text>
+      <rect x="210" y="90" width="60" height="100" rx="4" fill="#d4a574" opacity="0.75"/>
+      <text x="215" y="110">Month 3</text>
+      <rect x="300" y="60" width="60" height="130" rx="4" fill="url(#goldGrad)"/>
+      <text x="305" y="80" fill="#0d3320" font-weight="700">Month 4</text>
+    </g>
+
+    <text x="400" y="110" font-family="Georgia, serif" font-size="34" font-weight="800" fill="#f5ead9">
+      99.2%
+    </text>
+    <text x="400" y="135" font-family="Arial, sans-serif" font-size="12" fill="#f5ead9" opacity="0.65">
+      inventory record
+    </text>
+    <text x="400" y="150" font-family="Arial, sans-serif" font-size="12" fill="#f5ead9" opacity="0.65">
+      accuracy achieved
+    </text>
+  </g>
+
+  <!-- Footer brand mark -->
+  <g transform="translate(80, 610)" opacity="0.8">
+    <path d="M0 30 L14 8 L21 18 L28 4 L40 30 Z" fill="#d4a574"/>
+    <text x="50" y="26" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#f5ead9">
+      Apexon
+    </text>
+  </g>
+</svg>
