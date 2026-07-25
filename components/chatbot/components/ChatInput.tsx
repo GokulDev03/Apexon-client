@@ -23,7 +23,8 @@ export default function ChatInput({ value, onChange, onSend }: ChatInputProps) {
         />
 
         <button
-          onClick={onSend}
+       
+  onClick={() => onSend()}
           className="rounded-xl bg-[#0d3320] p-3 text-[#d4a574] hover:bg-[#0d3320]/90 transition"
         >
           <SendHorizonal size={18} />
