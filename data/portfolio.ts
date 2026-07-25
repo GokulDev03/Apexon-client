@@ -8,13 +8,13 @@ import type { PortfolioProject } from "@/types/portfolio";
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
     slug: "clearpath-clinic-booking-portal",
-    title: "ClearPath Clinic — Patient Booking Portal",
+    title: "ClearPath Clinic — Patient Booking Portal", 
     clientName: "ClearPath Clinic",
     industry: "healthcare",
     service: "custom-software-development",
     technologies: ["nextjs", "nodejs", "sql-databases"],
     timeline: "10 weeks",
-    coverImage: "/images/portfolio/clearpath-clinic-cover.jpg",
+    coverImage: "/images/portfolio/clearpath-clinic-cover-v2.svg",
     gallery: ["/images/portfolio/clearpath-clinic-1.jpg", "/images/portfolio/clearpath-clinic-2.jpg"],
     challenge:
       "ClearPath's front desk was booking appointments entirely by phone, causing double-bookings and long hold times during peak hours.",
@@ -31,7 +31,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     service: "website-development",
     technologies: ["shopify", "nextjs"],
     timeline: "6 weeks",
-    coverImage: "/images/portfolio/northloop-cover.jpg",
+    coverImage: "/images/portfolio/northloop-cover-v2.svg",
     gallery: ["/images/portfolio/northloop-1.jpg", "/images/portfolio/northloop-2.jpg"],
     challenge:
       "Northloop's old storefront had a 68% cart abandonment rate and a checkout flow that took an average of six steps.",
@@ -48,7 +48,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     service: "business-automation",
     technologies: ["python-django", "sql-databases", "aws"],
     timeline: "12 weeks",
-    coverImage: "/images/portfolio/forgeline-cover.jpg",
+    coverImage: "/images/portfolio/forgeline-cover-v2.svg",
     gallery: ["/images/portfolio/forgeline-1.jpg"],
     challenge:
       "Forgeline tracked raw material inventory across two warehouses using shared spreadsheets, leading to frequent stock discrepancies.",

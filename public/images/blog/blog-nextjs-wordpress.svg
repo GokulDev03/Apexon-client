@@ -1,0 +1,53 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d3320"/>
+      <stop offset="100%" stop-color="#0a2818"/>
+    </linearGradient>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d4a8"/>
+      <stop offset="100%" stop-color="#d4a574"/>
+    </linearGradient>
+    <pattern id="dots2" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgGrad2)"/>
+  <rect width="800" height="500" fill="url(#dots2)"/>
+
+  <g transform="translate(600,340)" opacity="0.12">
+    <path d="M0 90 L45 15 L67 48 L90 8 L128 90 Z" fill="#d4a574"/>
+  </g>
+
+  <rect x="60" y="60" width="180" height="34" rx="17" fill="#d4a574" opacity="0.15"/>
+  <text x="82" y="82" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#d4a574">
+    WEBSITE DEVELOPMENT
+  </text>
+
+  <!-- Icon: VS comparison -->
+  <g transform="translate(60, 140)">
+    <rect width="120" height="120" rx="24" fill="#f5ead9" opacity="0.08"/>
+    <circle cx="40" cy="60" r="22" fill="none" stroke="url(#goldGrad2)" stroke-width="4"/>
+    <circle cx="80" cy="60" r="22" fill="none" stroke="#f5ead9" stroke-width="4" opacity="0.5"/>
+    <text x="60" y="66" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#f5ead9" text-anchor="middle">VS</text>
+  </g>
+
+  <text x="60" y="330" font-family="Georgia, serif" font-size="32" font-weight="700" fill="#f5ead9">
+    <tspan fill="url(#goldGrad2)">Next.js</tspan> vs.
+  </text>
+  <text x="60" y="372" font-family="Georgia, serif" font-size="32" font-weight="700" fill="#f5ead9">
+    WordPress:
+  </text>
+  <text x="60" y="410" font-family="Georgia, serif" font-size="24" font-weight="600" fill="#f5ead9" opacity="0.85">
+    Choosing the Right
+  </text>
+  <text x="60" y="440" font-family="Georgia, serif" font-size="24" font-weight="600" fill="#f5ead9" opacity="0.85">
+    Platform
+  </text>
+
+  <g transform="translate(60, 460)" opacity="0.7">
+    <path d="M0 24 L11 6 L17 14 L23 3 L32 24 Z" fill="#d4a574"/>
+    <text x="42" y="21" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#f5ead9">Apexon</text>
+  </g>
+</svg>

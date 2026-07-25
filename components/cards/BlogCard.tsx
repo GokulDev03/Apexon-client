@@ -17,7 +17,7 @@ export function BlogCard({ slug, title, excerpt, coverImage, category, published
   return (
     <Link href={`/blog/${slug}`} className="group block overflow-hidden rounded-card border border-ink-200 bg-white shadow-soft transition-shadow hover:shadow-raised">
       <div className="relative aspect-[16/10] overflow-hidden bg-ink-100">
-        <Image src={coverImage} alt={title} fill className="object-cover transition-transform duration-500 ease-out-expo group-hover:scale-105" />
+        <Image src={coverImage} alt="website blogs and cost" fill className="object-cover transition-transform duration-500 ease-out-expo group-hover:scale-105" />
       </div>
       <div className="flex flex-col gap-3 p-5">
         <Badge tone="brand">{category}</Badge>

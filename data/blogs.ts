@@ -19,7 +19,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "7 Signs Your Business Has Outgrown Off-the-Shelf Software",
     excerpt:
       "Spreadsheets and generic SaaS tools work great until they don't. Here's how to tell your business has hit that point.",
-    coverImage: "/images/blog/custom-software-signs-cover.jpg",
+    coverImage: "/images/blog/blog-outgrown-software.svg",
     category: "Custom Software",
     tags: ["custom software", "business operations", "SaaS"],
     author: AUTHOR,
@@ -73,7 +73,7 @@ That's typically where we start too: a short discovery conversation to understan
     title: "Next.js vs. WordPress: Choosing the Right Platform for Your Business Website",
     excerpt:
       "Both platforms can produce a great website. The right choice depends on who's updating your content and what your site needs to do.",
-    coverImage: "/images/blog/nextjs-vs-wordpress-cover.jpg",
+    coverImage: "/images/blog/blog-nextjs-wordpress.svg",
     category: "Website Development",
     tags: ["Next.js", "WordPress", "web development"],
     author: AUTHOR,
@@ -119,7 +119,7 @@ There's no universally "better" platform — only the one that fits your actual 
     title: "How Much Does a Business Website Actually Cost in 2026?",
     excerpt:
       "A realistic breakdown of what drives website pricing — and why the cheapest quote isn't always the best value.",
-    coverImage: "/images/blog/website-cost-cover.jpg",
+    coverImage: "/images/blog/website-cost-cover.svg",
     category: "Pricing & Planning",
     tags: ["pricing", "website development", "budgeting"],
     author: AUTHOR,

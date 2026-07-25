@@ -1,0 +1,87 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d3320"/>
+      <stop offset="100%" stop-color="#0a2818"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d4a8"/>
+      <stop offset="100%" stop-color="#d4a574"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bgGrad)"/>
+  <rect width="1200" height="750" fill="url(#dots)"/>
+
+  <g transform="translate(950,60)" opacity="0.12">
+    <path d="M0 90 L45 15 L67 48 L90 8 L128 90 Z" fill="#d4a574"/>
+  </g>
+
+  <text x="140" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#d4a574">
+    ECOMMERCE
+  </text>
+
+  <text x="140" y="230" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#f5ead9">
+    Northloop Storefront Relaunch
+  </text>
+  <text x="140" y="270" font-family="Arial, sans-serif" font-size="19" fill="#f5ead9" opacity="0.75">
+    A faster checkout flow cut cart abandonment across the board
+  </text>
+
+  <!-- Stat card -->
+  <g transform="translate(140, 330)">
+    <rect width="420" height="220" rx="20" fill="#f5ead9" opacity="0.97"/>
+    <text x="30" y="46" font-family="Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#0d3320" opacity="0.6">
+      CART ABANDONMENT RATE
+    </text>
+
+    <text x="30" y="100" font-family="Arial, sans-serif" font-size="13" fill="#0d3320" opacity="0.5">Before</text>
+    <text x="30" y="132" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#0d3320" opacity="0.4">68%</text>
+
+    <polygon points="150,104 190,104 190,98 202,110 190,122 190,116 150,116" fill="#d4a574"/>
+
+    <text x="230" y="100" font-family="Arial, sans-serif" font-size="13" fill="#0d3320" opacity="0.6">After</text>
+    <text x="230" y="132" font-family="Georgia, serif" font-size="34" font-weight="800" fill="#0d3320">51%</text>
+
+    <line x1="30" y1="160" x2="390" y2="160" stroke="#0d3320" stroke-opacity="0.1" stroke-width="1"/>
+    <text x="30" y="185" font-family="Georgia, serif" font-size="26" font-weight="800" fill="#0d3320">
+      -17 pts
+    </text>
+    <text x="30" y="205" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#d4a574">
+      Ecommerce · Storefront Relaunch
+    </text>
+  </g>
+
+  <!-- Funnel chart card -->
+  <g transform="translate(600, 330)">
+    <rect width="460" height="220" rx="20" fill="#ffffff" opacity="0.06"/>
+    <text x="30" y="40" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#d4a574" opacity="0.9">
+      CHECKOUT FUNNEL
+    </text>
+
+    <g font-family="Arial, sans-serif" font-size="11" fill="#f5ead9" opacity="0.85">
+      <rect x="30" y="65" width="380" height="18" rx="4" fill="#d4a574" opacity="0.9"/>
+      <text x="30" y="60">Cart created — 100%</text>
+
+      <rect x="30" y="105" width="270" height="18" rx="4" fill="#d4a574" opacity="0.65"/>
+      <text x="30" y="100">Checkout started — 71%</text>
+
+      <rect x="30" y="145" width="185" height="18" rx="4" fill="url(#goldGrad)"/>
+      <text x="30" y="140">Order completed — 49%</text>
+    </g>
+
+    <text x="30" y="200" font-family="Arial, sans-serif" font-size="12" fill="#f5ead9" opacity="0.6">
+      +12% checkout completion after redesign
+    </text>
+  </g>
+
+  <g transform="translate(140, 600)" opacity="0.8">
+    <path d="M0 30 L14 8 L21 18 L28 4 L40 30 Z" fill="#d4a574"/>
+    <text x="50" y="26" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#f5ead9">
+      Apexon
+    </text>
+  </g>
+</svg>

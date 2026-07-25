@@ -14,8 +14,8 @@ export function ServiceCard({ slug, name, shortDescription, icon }: ServiceCardP
   const Icon = (Icons as unknown as Record<string, LucideIcon>)[icon] ?? Icons.Sparkles;
 
   return (
-    <Link href={`/services/${slug}`}>
-      aria-label={`Learn more about ${name}`}
+    <Link href={`/services/${slug} `}>
+      
       <Card className="group flex h-full flex-col gap-4">
         <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-brand-50 text-brand-600">
           <Icon size={20} />
