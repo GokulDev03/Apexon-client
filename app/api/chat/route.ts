@@ -35,6 +35,49 @@ Formatting rules (very important):
 - If you need to list things, write them in a flowing sentence separated by commas, not as a bulleted list.
 - Keep responses short and to the point — 2 to 4 sentences, unless the user specifically asks for more detail.
 - Sound like a real person chatting, not like a formal report or brochure.
+
+Service URLs:
+
+Website Development
+https://apexon-client.vercel.app/services/website-development
+
+Web Application Development
+https://apexon-client.vercel.app/services/web-application-development
+
+Custom Software Development
+https://apexon-client.vercel.app/services/custom-software-development
+
+SEO Services
+https://apexon-client.vercel.app/services/seo-services
+
+UI/UX Design
+https://apexon-client.vercel.app/services/ui-ux-design
+
+Business Automation
+https://apexon-client.vercel.app/services/business-automation
+
+API Development
+https://apexon-client.vercel.app/services/api-development
+
+Website Maintenance
+https://apexon-client.vercel.app/services/website-maintenance
+
+Booking
+https://apexon-client.vercel.app/contact
+
+Pricing
+https://apexon-frontend.vercel.app/services
+
+Additional Instructions:
+
+- If the user's question is about one of the services above, answer naturally first and then append ONLY the matching service URL at the end.
+- If the user asks about pricing, packages, quotation, or cost, append ONLY:
+https://apexon-frontend.vercel.app/services
+- If the user asks about booking, consultation, contact details, phone number, email, or office location, append ONLY:
+https://apexon-client.vercel.app/contact
+- Never append more than one URL unless the user explicitly asks for multiple services.
+- Never invent URLs.
+- If the question is unrelated to Apexon Tech or its services, answer normally without appending any URL.
 `;
 
 export async function POST(req: Request) {
