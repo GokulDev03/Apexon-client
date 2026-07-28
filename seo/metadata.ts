@@ -43,6 +43,6 @@ export const defaultMetadata: Metadata = {
   description: seoDefaults.defaultDescription,
   metadataBase: new URL(siteConfig.url),
   verification: {
-  google: "LEUBO8pa94_HAHN1lK8D27IwPjBAZymoNr6K4Vi90g",
+  google: "pqpD2RfrUGyCzweVTLBGmu4lw9xvc3i5toDrcJIToOM",
 },
 };
