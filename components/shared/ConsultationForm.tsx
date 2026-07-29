@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
 
 // Your WhatsApp business number in international format, no + or spaces
-const WHATSAPP_NUMBER = "919025649921";
+// const WHATSAPP_NUMBER = "919025649921";
 export function ConsultationForm() {
   const router = useRouter();
   const {
@@ -20,26 +20,44 @@ export function ConsultationForm() {
 
   const onSubmit = async (values: ConsultationValues) => {
     // Build a readable WhatsApp message from the form data
-    const message = `*New Consultation Request*
+//     const message = `*New Consultation Request*
 
-*Name:* ${values.name}
-*Email:* ${values.email}
-*Company:* ${values.company || "-"}
-*Preferred Date:* ${values.preferredDate}
-*Preferred Time:* ${values.preferredTime}
-*Notes:* ${values.notes || "-"}`;
+// *Name:* ${values.name}
+// *Email:* ${values.email}
+// *Company:* ${values.company || "-"}
+// *Preferred Date:* ${values.preferredDate}
+// *Preferred Time:* ${values.preferredTime}
+// *Notes:* ${values.notes || "-"}`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+//     const encodedMessage = encodeURIComponent(message);
+//     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
 
-    // Optional: still log/save the lead somewhere (CRM, email, DB) before redirecting
-    // await fetch("/api/consultation", { method: "POST", body: JSON.stringify(values) });
+//     // Optional: still log/save the lead somewhere (CRM, email, DB) before redirecting
+//     // await fetch("/api/consultation", { method: "POST", body: JSON.stringify(values) });
 
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, "_blank");
+//     // Open WhatsApp in a new tab
+//     window.open(whatsappUrl, "_blank");
 
-    // Then navigate to thank-you page
-    router.push("/thank-you");
+//     // Then navigate to thank-you page
+//     router.push("/thank-you");
+const response = await fetch("/api/consultation", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(values),
+});
+
+const data = await response.json();
+
+console.log("...........",data);
+// const data = await response.json();
+
+if (response.ok) {
+  router.push(`/pending?token=${data.token}`);
+} else {
+  alert(data.error || "Something went wrong");
+}
   };
 
   return (
