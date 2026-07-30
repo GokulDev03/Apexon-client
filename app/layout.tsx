@@ -7,6 +7,8 @@ import { MainLayout } from "@/layouts/MainLayout";
 import ChatBot from "@/components/chatbot/ChatBot";
 import "./globals.css";
 import OfferToast from "@/components/OfferToast";
+import AuthProvider from "@/components/auth/AuthProvider";
+import LoginPopup from "@/components/auth/LoginPopup";
 
 export const metadata: Metadata = defaultMetadata;
 
@@ -18,11 +20,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
-        <AppProviders>
-          <MainLayout>{children}</MainLayout>
-          <OfferToast />
-          <ChatBot/>
-        </AppProviders>
+        <AuthProvider>
+          <AppProviders>
+            <MainLayout>{children}</MainLayout>
+            <OfferToast />
+            <ChatBot />
+            <LoginPopup />
+          </AppProviders>
+        </AuthProvider>
       </body>
     </html>
   );
