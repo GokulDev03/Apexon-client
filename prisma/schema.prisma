@@ -68,3 +68,22 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+model Lead {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String?
+  company      String?
+  industry     String?
+  budget       String?
+  timeline     String?
+  projectType  String?
+  score        Int      @default(0)
+  status       String   @default("new") // new, qualified, in-review, disqualified
+  source       String   @default("chatbot") // chatbot, form, manual
+  reasoning    String?  @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("leads")
+}
