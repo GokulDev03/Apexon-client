@@ -11,6 +11,8 @@ import { useNav } from "@/context/NavContext";
 import { navConfig } from "@/config/nav.config";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import { useSession, signOut } from "next-auth/react";
+import AccountButton from "../auth/AccountButton";
 
 export function Navbar() {
   const scrolled = useScrollPosition(navConfig.stickyScrollThreshold);
@@ -28,14 +30,14 @@ export function Navbar() {
       <Container className="flex h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative flex shrink-0 items-center">
-         <Image
-  src="/apexon-logo-white.svg"
-  alt="Apexon"
-  width={200}
-  height={64}
-  priority
-  className="h-11 w-auto sm:h-12"
-/>
+          <Image
+            src="/apexon-logo-white.svg"
+            alt="Apexon"
+            width={200}
+            height={64}
+            priority
+            className="h-11 w-auto sm:h-12"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -99,6 +101,10 @@ export function Navbar() {
         {/* CTA + mobile toggle */}
         <div className="flex items-center gap-3">
           <div className="hidden lg:block">
+            <AccountButton />
+          </div>
+
+          <div className="hidden lg:block">
             <Button
               href="/book-consultation"
               size="sm"
@@ -153,7 +159,9 @@ function MobileMenu() {
             >
               Contact
             </Link>
-            <div className="mt-2 px-3">
+
+            <div className="mt-3 flex flex-col gap-3 border-t border-white/10 px-3 pt-4">
+              <MobileAccountSection onNavigate={() => setMobileMenuOpen(false)} />
               <Button
                 href="/book-consultation"
                 size="sm"
@@ -166,5 +174,36 @@ function MobileMenu() {
         </motion.div>
       )}
     </AnimatePresence>
+  );
+}
+
+function MobileAccountSection({ onNavigate }: { onNavigate: () => void }) {
+  const { data: session } = useSession();
+
+  if (!session) return null;
+
+  const role = (session.user as any)?.role;
+
+  return (
+    <div className="rounded-lg border border-white/10 bg-white/5 p-3">
+      <p className="mb-2 truncate px-1 text-xs text-white/60">{session.user?.email}</p>
+      <div className="flex flex-col gap-1">
+        {role === "admin" && (
+          <Link
+            href="/admin"
+            onClick={onNavigate}
+            className="rounded-md px-2 py-2 text-sm font-medium text-white transition hover:bg-white/10"
+          >
+            Admin panel
+          </Link>
+        )}
+        <button
+          onClick={() => signOut({ callbackUrl: "/" })}
+          className="rounded-md px-2 py-2 text-left text-sm font-medium text-red-300 transition hover:bg-white/10"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
   );
 }
