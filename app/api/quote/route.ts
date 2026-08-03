@@ -159,3 +159,19 @@ export async function POST(req: Request) {
   }
 
 }
+
+
+export async function GET() {
+  try {
+    const quotes = await prisma.quoteRequest.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+    return NextResponse.json(quotes);
+  } catch (error: any) {
+    console.log(error);
+    return NextResponse.json(
+      { success: false, message: error.message },
+      { status: 500 }
+    );
+  }
+}
