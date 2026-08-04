@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { calculateEstimate } from "@/components/cost-estimator/services/costEstimatorService";
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY!,
@@ -26,7 +27,8 @@ Rules:
 - Be professional and friendly.
 - Answer website development questions clearly.
 - If someone asks about Apexon services, explain them.
-- If pricing is asked, say it depends on requirements and recommend contacting Apexon Tech.
+- If pricing is asked and no estimate context is provided below, say it depends on requirements and recommend contacting Apexon Tech.
+- If an ESTIMATE CONTEXT section is provided below, use that estimated price range naturally in your answer instead of deflecting.
 - If the question is unrelated to web development or Apexon services, politely say you specialize in those topics.
 
 Formatting rules (very important):
@@ -80,13 +82,58 @@ https://apexon-client.vercel.app/contact
 - If the question is unrelated to Apexon Tech or its services, answer normally without appending any URL.
 `;
 
+const COST_KEYWORDS = [
+  "cost", "price", "pricing", "budget", "quote", "estimate",
+  "எவ்வளவு", "விலை", "how much",
+];
+
+function mentionsCost(message: string): boolean {
+  const lower = message.toLowerCase();
+  return COST_KEYWORDS.some((keyword) => lower.includes(keyword));
+}
+
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
 
+    // Check if user is asking about cost/pricing
+    let costEstimateContext = "";
+    if (mentionsCost(message)) {
+       console.log("Cost keyword detected, calling extract API...");
+      try {
+        const estimateRes = await fetch(
+          `${process.env.NEXT_PUBLIC_SITE_URL}/api/cost-estimate/extract`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message }),
+          }
+        );
+         console.log("Estimate API status:", estimateRes.status);
+
+
+        if (estimateRes.ok) {
+          const requirements = await estimateRes.json();
+
+          if (requirements?.projectType) {
+            const estimate = calculateEstimate(requirements);
+
+            costEstimateContext = `
+
+ESTIMATE CONTEXT: Based on the user's message, here is a calculated rough estimate:
+Project type: ${estimate.projectType}
+Estimated range: ₹${estimate.minEstimate.toLocaleString()} - ₹${estimate.maxEstimate.toLocaleString()}
+Mention this range naturally, and note the final quote depends on exact requirements. Recommend booking a consultation for an exact quote.`;
+          }
+        }
+      } catch (err) {
+        console.error("Cost estimate lookup failed:", err);
+      }
+    }
+
     const responseStream = await ai.models.generateContentStream({
       model: "gemini-3.5-flash-lite",
-      contents: `${SYSTEM_PROMPT}\n\nUser: ${message}`,
+      contents: `${SYSTEM_PROMPT}${costEstimateContext}\n\nUser: ${message}`,
       config: {
         maxOutputTokens: 300,
         temperature: 0.7,

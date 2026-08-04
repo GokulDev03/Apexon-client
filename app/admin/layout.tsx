@@ -14,10 +14,10 @@ export default async function AdminLayout({
     redirect("/");
   }
 
-  return (
-    <div className="flex min-h-screen bg-[#fafaf8]">
+ return (
+    <div className="flex min-h-screen flex-col bg-[#fafaf8] lg:flex-row">
       <AdminSidebar />
-      <main className="flex-1 overflow-y-auto p-8">{children}</main>
+      <main className="flex-1 overflow-y-auto p-4 lg:p-8">{children}</main>
     </div>
   );
 }
